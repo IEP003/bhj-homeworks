@@ -1,17 +1,20 @@
 let clickerCounter = document.getElementById('clicker__counter');
 let cookie = document.getElementById('cookie');
 let clickPerSecond = document.getElementById('click__per__second');
-const date = new Date();
+let firstTimeClick = new Date;
+let secondTimeClick = new Date;
 
 function cookieClicker(){
-    let timeClick = new Date;
     clickerCounter.textContent ++;
     if (clickerCounter.textContent % 2){
-        cookie.width = 150;
+        cookie.width = 250;
+        firstTimeClick = new Date();
+        clickPerSecond.textContent = ((1/(firstTimeClick - secondTimeClick))*1000).toFixed(2);
     } else {
         cookie.width = 200;
+        secondTimeClick = new Date();
+        clickPerSecond.textContent = ((1/(secondTimeClick - firstTimeClick))*1000).toFixed(2);
     }
-    clickPerSecond.textContent = (clickerCounter.textContent / ((timeClick - date)/1000)).toFixed(2);
 }
 
 cookie.onclick = cookieClicker;
