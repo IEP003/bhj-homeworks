@@ -17,10 +17,9 @@ class Game {
   }
 
   registerEvents() {
-    addEventListener('keydown', (letter) => {
-      let letters = Array.from(letter.code)
-      return letters[letters.length - 1].toLowerCase() === this.currentSymbol.textContent ? this.success() : this.fail();
-    })
+    addEventListener('keydown', (letter) =>  
+    letter.key === this.currentSymbol.textContent ? this.success() : this.fail()
+    )
   }
 
   success() {
