@@ -21,6 +21,10 @@ openChat.onclick = () => {
 input.addEventListener('keydown', (evt) => {
    date = new Date();
    if (evt.key === 'Enter' && input.value != ''){
+      if (input.value.charAt(0) === ' '){
+         input.value = ''
+         return
+      }
       chat.innerHTML += `
       <div class="message message_client">
          <div class="message__time">${date.toLocaleTimeString().slice(0, 5)}</div>
